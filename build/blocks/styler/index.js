@@ -21,8 +21,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/styler/editor.scss");
-/* harmony import */ var _components_DisplayControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/DisplayControl */ "./src/components/DisplayControl.js");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+/* harmony import */ var _components_DisplayControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/DisplayControl */ "./src/components/DisplayControl.js");
+/* harmony import */ var _components_PaddingControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/PaddingControl */ "./src/components/PaddingControl.js");
+
 
 
 
@@ -58,10 +60,13 @@ function Edit({
     })
   })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "STYLER BLOCK"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_DisplayControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "STYLER BLOCK"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_DisplayControl__WEBPACK_IMPORTED_MODULE_6__["default"], {
     updateStyle: updateStyle,
     styles: styles
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, (0,_utils__WEBPACK_IMPORTED_MODULE_6__.generateStyles)(selector, styles))));
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_PaddingControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    updateStyle: updateStyle,
+    styles: styles
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, (0,_utils__WEBPACK_IMPORTED_MODULE_5__.generateStyles)(selector, styles))));
 }
 
 /***/ }),
@@ -186,6 +191,53 @@ function DisplayControl({
 
 /***/ }),
 
+/***/ "./src/components/PaddingControl.js":
+/*!******************************************!*\
+  !*** ./src/components/PaddingControl.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ PaddingControl)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function PaddingControl({
+  styles,
+  updateStyle
+}) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Padding', 'cohesion'),
+    initialOpen: true
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Top", "cohesion"),
+    value: styles.paddingTop,
+    onChange: val => updateStyle('paddingTop', val)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Right", "cohesion"),
+    value: styles.paddingRight,
+    onChange: val => updateStyle('paddingRight', val)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Bottom", "cohesion"),
+    value: styles.paddingBottom,
+    onChange: val => updateStyle('paddingBottom', val)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Left", "cohesion"),
+    value: styles.paddingLeft,
+    onChange: val => updateStyle('paddingLeft', val)
+  }))));
+}
+
+/***/ }),
+
 /***/ "./src/utils.js":
 /*!**********************!*\
   !*** ./src/utils.js ***!
@@ -196,11 +248,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   generateStyles: () => (/* binding */ generateStyles)
 /* harmony export */ });
+// Utility function to convert camelCase to kebab-case
+function camelCaseToKebabCase(str) {
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+}
+
+// Function to generate styles with camelCase to kebab-case conversion
 function generateStyles(selector, styles) {
   if (!selector || selector === '') {
     return '';
   }
-  const filteredStyles = Object.entries(styles).filter(([key, value]) => value !== "").map(([key, value]) => `${key}: ${value};`).join(' ');
+  const filteredStyles = Object.entries(styles).filter(([key, value]) => value !== "").map(([key, value]) => `${camelCaseToKebabCase(key)}: ${value};`).join(' ');
   return `
         ${selector} {
             ${filteredStyles}

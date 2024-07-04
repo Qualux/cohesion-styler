@@ -6,8 +6,9 @@ import {
     PanelRow,
 } from '@wordpress/components';
 import './editor.scss';
-import DisplayControl from '../../components/DisplayControl';
 import { generateStyles } from '../../utils';
+import DisplayControl from '../../components/DisplayControl';
+import PaddingControl from '../../components/PaddingControl';
 
 export default function Edit({ attributes, setAttributes }) {
 
@@ -45,6 +46,10 @@ export default function Edit({ attributes, setAttributes }) {
                     STYLER BLOCK
                 </h2>
                 <DisplayControl
+                    updateStyle={updateStyle}
+                    styles={styles}
+                />
+                <PaddingControl
                     updateStyle={updateStyle}
                     styles={styles}
                 />
