@@ -3,7 +3,7 @@
 	"apiVersion": 3,
 	"name": "cohesion/styler",
 	"version": "0.1.0",
-	"title": "Cohesion Styler",
+	"title": "Styler",
 	"category": "widgets",
 	"icon": "format-image",
 	"description": "Design CSS stylesheet.",

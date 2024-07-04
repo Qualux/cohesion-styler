@@ -19,6 +19,15 @@ class Plugin {
 
     public function __construct() {
 
+        add_action( 'init', [ $this, 'register_block' ] );
+
+    }
+
+    function register_block() {
+
+        $result = register_block_type(
+            COHESION_STYLER_PATH . 'build/blocks/styler'
+        );
 
     }
 

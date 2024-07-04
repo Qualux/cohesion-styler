@@ -216,7 +216,7 @@ module.exports = window["wp"]["i18n"];
   \**************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cohesion/styler","version":"0.1.0","title":"Cohesion Styler","category":"widgets","icon":"format-image","description":"Design CSS stylesheet.","example":{},"supports":{"html":false},"attributes":{"styles":{"type":"object","default":{}}},"textdomain":"cohesion","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cohesion/styler","version":"0.1.0","title":"Styler","category":"widgets","icon":"format-image","description":"Design CSS stylesheet.","example":{},"supports":{"html":false},"attributes":{"styles":{"type":"object","default":{}}},"textdomain":"cohesion","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 
