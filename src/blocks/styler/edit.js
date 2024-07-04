@@ -7,10 +7,11 @@ import {
 } from '@wordpress/components';
 import './editor.scss';
 import DisplayControl from '../../components/DisplayControl';
+import { generateStyles } from '../../utils';
 
 export default function Edit({ attributes, setAttributes }) {
 
-    const { styles } = attributes;
+    const { styles, selector } = attributes;
 
     const updateStyle = (property, val) => {
         setAttributes({ 
@@ -30,7 +31,13 @@ export default function Edit({ attributes, setAttributes }) {
                     title={__('Styler Settings', 'cohesion')}
                     initialOpen={true}
                 >
-                    <PanelRow></PanelRow>
+                    <PanelRow>
+                        <TextControl
+                            label={ __("Selector", "cohesion") }
+                            value={ selector }
+                            onChange={ (val) => setAttributes({selector: val}) }
+                        />
+                    </PanelRow>
                 </PanelBody>
             </InspectorControls>
             <div {...blockProps}>
@@ -41,6 +48,7 @@ export default function Edit({ attributes, setAttributes }) {
                     updateStyle={updateStyle}
                     styles={styles}
                 />
+                <style>{generateStyles(selector, styles)}</style>
             </div>
         </> 
     );

@@ -22,6 +22,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/styler/editor.scss");
 /* harmony import */ var _components_DisplayControl__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/DisplayControl */ "./src/components/DisplayControl.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
+
 
 
 
@@ -33,7 +35,8 @@ function Edit({
   setAttributes
 }) {
   const {
-    styles
+    styles,
+    selector
   } = attributes;
   const updateStyle = (property, val) => {
     setAttributes({
@@ -47,12 +50,18 @@ function Edit({
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Styler Settings', 'cohesion'),
     initialOpen: true
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Selector", "cohesion"),
+    value: selector,
+    onChange: val => setAttributes({
+      selector: val
+    })
+  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "STYLER BLOCK"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_DisplayControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
     updateStyle: updateStyle,
     styles: styles
-  })));
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, (0,_utils__WEBPACK_IMPORTED_MODULE_6__.generateStyles)(selector, styles))));
 }
 
 /***/ }),
@@ -177,6 +186,30 @@ function DisplayControl({
 
 /***/ }),
 
+/***/ "./src/utils.js":
+/*!**********************!*\
+  !*** ./src/utils.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   generateStyles: () => (/* binding */ generateStyles)
+/* harmony export */ });
+function generateStyles(selector, styles) {
+  if (!selector || selector === '') {
+    return '';
+  }
+  const filteredStyles = Object.entries(styles).filter(([key, value]) => value !== "").map(([key, value]) => `${key}: ${value};`).join(' ');
+  return `
+        ${selector} {
+            ${filteredStyles}
+        }
+    `;
+}
+
+/***/ }),
+
 /***/ "./src/blocks/styler/editor.scss":
 /*!***************************************!*\
   !*** ./src/blocks/styler/editor.scss ***!
@@ -257,7 +290,7 @@ module.exports = window["wp"]["i18n"];
   \**************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cohesion/styler","version":"0.1.0","title":"Styler","category":"widgets","icon":"format-image","description":"Design CSS stylesheet.","example":{},"supports":{"html":false},"attributes":{"styles":{"type":"object","default":{}}},"textdomain":"cohesion","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"cohesion/styler","version":"0.1.0","title":"Styler","category":"widgets","icon":"format-image","description":"Design CSS stylesheet.","example":{},"supports":{"html":false},"attributes":{"selector":{"type":"string"},"styles":{"type":"object","default":{}}},"textdomain":"cohesion","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 

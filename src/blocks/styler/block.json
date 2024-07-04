@@ -12,6 +12,9 @@
 	  "html": false
 	},
 	"attributes": {
+	  "selector": {
+		"type": "string"
+	  },
 	  "styles": {
 		"type": "object",
 		"default": {}
