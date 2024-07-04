@@ -1,18 +1,14 @@
 import { useBlockProps } from '@wordpress/block-editor';
-import { generateStyles } from './utils';
 
 export default function save({ attributes }) {
 
-    const { svg, styles, styleId } = attributes;
+    const { styles } = attributes;
 
-    const blockProps = useBlockProps.save({
-        className: `block-cohesion-svg-${styleId}`
-    });
+    const blockProps = useBlockProps.save();
 
     return (
-		<>
-			<div {...blockProps} dangerouslySetInnerHTML={{ __html: svg }} />
-			<style>{generateStyles(styleId, styles)}</style>
-		</>
+			<div {...blockProps}>
+        STYLER BLOCK
+			</div>
     );
 }
