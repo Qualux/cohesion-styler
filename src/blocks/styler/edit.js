@@ -6,6 +6,7 @@ import {
     PanelRow,
 } from '@wordpress/components';
 import './editor.scss';
+import DisplayControl from '../../components/DisplayControl';
 
 export default function Edit({ attributes, setAttributes }) {
 
@@ -33,7 +34,13 @@ export default function Edit({ attributes, setAttributes }) {
                 </PanelBody>
             </InspectorControls>
             <div {...blockProps}>
-                STYLER BLOCK
+                <h2>
+                    STYLER BLOCK
+                </h2>
+                <DisplayControl
+                    updateStyle={updateStyle}
+                    styles={styles}
+                />
             </div>
         </> 
     );
