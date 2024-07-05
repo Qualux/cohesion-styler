@@ -9,6 +9,9 @@ import './editor.scss';
 import { generateStyles } from '../../utils';
 import DisplayControl from '../../components/DisplayControl';
 import PaddingControl from '../../components/PaddingControl';
+import MarginControl from '../../components/MarginControl';
+import GapControl from '../../components/GapControl';
+import BackgroundControl from '../../components/BackgroundControl';
 
 export default function Edit({ attributes, setAttributes }) {
 
@@ -50,6 +53,18 @@ export default function Edit({ attributes, setAttributes }) {
                     styles={styles}
                 />
                 <PaddingControl
+                    updateStyle={updateStyle}
+                    styles={styles}
+                />
+                <MarginControl
+                    updateStyle={updateStyle}
+                    styles={styles}
+                />
+                <GapControl
+                    updateStyle={updateStyle}
+                    styles={styles}
+                />
+                <BackgroundControl 
                     updateStyle={updateStyle}
                     styles={styles}
                 />

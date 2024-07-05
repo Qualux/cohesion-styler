@@ -24,6 +24,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils */ "./src/utils.js");
 /* harmony import */ var _components_DisplayControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/DisplayControl */ "./src/components/DisplayControl.js");
 /* harmony import */ var _components_PaddingControl__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/PaddingControl */ "./src/components/PaddingControl.js");
+/* harmony import */ var _components_MarginControl__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/MarginControl */ "./src/components/MarginControl.js");
+/* harmony import */ var _components_GapControl__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/GapControl */ "./src/components/GapControl.js");
+/* harmony import */ var _components_BackgroundControl__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/BackgroundControl */ "./src/components/BackgroundControl.js");
+
+
+
 
 
 
@@ -64,6 +70,15 @@ function Edit({
     updateStyle: updateStyle,
     styles: styles
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_PaddingControl__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    updateStyle: updateStyle,
+    styles: styles
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_MarginControl__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    updateStyle: updateStyle,
+    styles: styles
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_GapControl__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    updateStyle: updateStyle,
+    styles: styles
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_BackgroundControl__WEBPACK_IMPORTED_MODULE_10__["default"], {
     updateStyle: updateStyle,
     styles: styles
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", null, (0,_utils__WEBPACK_IMPORTED_MODULE_5__.generateStyles)(selector, styles))));
@@ -155,6 +170,41 @@ function save({
 
 /***/ }),
 
+/***/ "./src/components/BackgroundControl.js":
+/*!*********************************************!*\
+  !*** ./src/components/BackgroundControl.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ BackgroundControl)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function BackgroundControl({
+  styles,
+  updateStyle
+}) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background', 'cohesion'),
+    initialOpen: true
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Background Color", "cohesion"),
+    value: styles.backgroundColor,
+    onChange: val => updateStyle('backgroundColor', val)
+  }))));
+}
+
+/***/ }),
+
 /***/ "./src/components/DisplayControl.js":
 /*!******************************************!*\
   !*** ./src/components/DisplayControl.js ***!
@@ -186,6 +236,92 @@ function DisplayControl({
     value: styles.display,
     onChange: val => updateStyle('display', val),
     placeholder: "16px"
+  }))));
+}
+
+/***/ }),
+
+/***/ "./src/components/GapControl.js":
+/*!**************************************!*\
+  !*** ./src/components/GapControl.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ GapControl)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function GapControl({
+  styles,
+  updateStyle
+}) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Gap', 'cohesion'),
+    initialOpen: true
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Row Gap", "cohesion"),
+    value: styles.rowGap,
+    onChange: val => updateStyle('rowGap', val)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Column Gap", "cohesion"),
+    value: styles.columnGap,
+    onChange: val => updateStyle('columnGap', val)
+  }))));
+}
+
+/***/ }),
+
+/***/ "./src/components/MarginControl.js":
+/*!*****************************************!*\
+  !*** ./src/components/MarginControl.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ MarginControl)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function MarginControl({
+  styles,
+  updateStyle
+}) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Margin', 'cohesion'),
+    initialOpen: true
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Top", "cohesion"),
+    value: styles.marginTop,
+    onChange: val => updateStyle('marginTop', val)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Right", "cohesion"),
+    value: styles.marginRight,
+    onChange: val => updateStyle('marginRight', val)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Bottom", "cohesion"),
+    value: styles.marginBottom,
+    onChange: val => updateStyle('marginBottom', val)
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Left", "cohesion"),
+    value: styles.marginLeft,
+    onChange: val => updateStyle('marginLeft', val)
   }))));
 }
 
